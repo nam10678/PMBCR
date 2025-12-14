@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TOOL-AI Baccarat (TF.js) — Demo</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>TOOL-AI Baccarat — Demo (TF.js)</h1>
+    <p>Nhập lịch sử ván (P = Player, B = Banker, T = Tie). Bấm <strong>Build dataset</strong> → <strong>Train model</strong>.</p>
+
+    <div class="controls">
+      <button id="btnP" class="btn player">Player (P)</button>
+      <button id="btnB" class="btn banker">Banker (B)</button>
+      <button id="btnT" class="btn tie">Tie (T)</button>
+      <button id="btnUndo" class="btn">Undo</button>
+      <button id="btnReset" class="btn reset">Reset</button>
+    </div>
+
+    <div class="status">
+      <h3>Lịch sử (mới nhất bên phải)</h3>
+      <div id="history" class="history"></div>
+
+      <div class="train-controls">
+        <label for="windowSize">Window size (N):</label>
+        <input id="windowSize" type="number" value="5" min="2" max="10" />
+        <label for="patternCount">Top patterns (K):</label>
+        <input id="patternCount" type="number" value="50" min="0" max="500" />
+        <button id="btnBuildData" class="btn">Build dataset</button>
+        <button id="btnTrain" class="btn">Train model</button>
+        <button id="btnEval" class="btn">Eval</button>
+        <button id="btnSave" class="btn">Save model</button>
+        <button id="btnLoad" class="btn">Load model</button>
+      </div>
+
+      <h3>Dự đoán</h3>
+      <div id="prediction" class="prediction">Chưa có mô hình</div>
+    </div>
+
+    <hr />
+    <h3>formula.json (pattern library)</h3>
+    <pre id="formulaContent">Đang tải...</pre>
+
+    <hr />
+    <h3>Console</h3>
+    <pre id="log" class="log"></pre>
+  </div>
+
+  <script src="utils.js"></script>
+  <script src="model.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
